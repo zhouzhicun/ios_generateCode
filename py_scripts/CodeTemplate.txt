@@ -1,0 +1,310 @@
+
+begin
+file_desc
+//
+//  %s.h
+//  %s
+//
+//  Created by xiaoniu on %s.
+//  Copyright © 2016年 xiaoniu88. All rights reserved.
+//
+end
+
+
+begin
+property
+@property(nonatomic, strong)%s *%s;
+end
+
+
+
+
+
+################################## UI Setter模板  ###########################
+
+begin
+set_method_UIView
+- (%s *)%s
+{
+
+	if(!_%s) {
+
+		_%s = createView(%s);
+		%s
+	}
+
+	return _%s;
+}
+end
+
+
+begin
+set_method_UILabel
+[_%s ss_setText:@"文本"
+         Font:nil
+         TextColor:nil
+         BackgroundColor:nil];
+
+end
+
+
+begin
+set_method_UIImageView
+_%s.image = UIImageWithName(@"");
+
+end
+
+
+
+begin
+set_method_UIButton
+[_%s ss_setTitle:@"标题"
+	TitleFont:nil
+ 	NormalTitleColor:nil
+ 	HighLightTitleColor:nil];
+
+[_%s ss_setNormalBGImage:UIImageWithName(@"")
+    HighlightBGImage:UIImageWithName(@"")];
+
+end
+
+
+
+begin
+set_method_UITextField
+SSTextAttributedItem *textAttrItem  = SSTextAttrItem(@"文本", nil, nil);
+SSTextAttributedItem *placeAttrItem = SSTextAttrItem(@"占位文本", nil, nil);
+[_%s ss_setTextAttrItem:textAttrItem PlaceAttrItem:placeAttrItem];
+
+end
+
+
+
+
+
+
+
+
+##################### addView模板  ###########################
+
+begin
+view_addview
+[self addSubview:self.%s];
+end
+
+begin
+cell_addview
+[self.contentView addSubview:self.%s];
+end
+
+begin
+viewcontroller_addview
+[self.view addSubview:self.%s];
+end
+
+
+
+
+################################## make模板  ###########################
+
+begin
+view_makeConstraint
+[self.%s mas_makeConstraints:^(MASConstraintMaker *make) {
+
+
+}];
+
+end
+
+
+
+################################## UIMethod模板  ###########################
+
+
+begin
+
+view_UIMethod
+
+- (void)setupView
+{
+    %s
+}
+
+- (void)setupConstraint
+{
+
+    WEAKSELF;
+
+    %s
+}
+
+- (void)setupEvent
+{
+    //WEAKSELF;
+
+    %s
+
+}
+
+end
+
+
+
+
+
+
+
+
+################# 其他方法模板 #############################
+
+
+begin
+view_otherMethod
+
+
+#pragma mark - Public
+
+
+- (void)configView
+{
+
+}
+
+
+- (CGFloat)viewHeight
+{
+
+}
+
+
+end
+
+
+begin
+cell_otherMethod
+
+#pragma mark - Public
+
+- (void)bindModel:(<#EntityClass#> *)model
+{
+
+}
+
++ (CGFloat)cellHeight
+{
+
+}
+
+end
+
+
+
+begin
+
+viewcontroller_otherMethod
+
+
+#pragma mark - ViewModel
+
+- (void)bindViewModel
+{
+    [super bindViewModel];
+
+}
+
+#pragma mark - Private
+
+- (void)backButtonPressed:(id)sender
+{
+    [self.view endEditing:YES];
+
+    //返回
+}
+
+end
+
+
+
+begin
+viewmodel_otherMethod
+
+
+- (void)commonInit
+{
+    [super commonInit];
+
+    self.navBarTitle = @"标题";
+
+    //初始化
+
+}
+
+
+#pragma mark - 接口
+
+///* 请求 */
+//- (RACSignal *)<#testMethod#>
+//{
+//
+//    @weakify(self);
+//    XNLHttpRequest *req = [XNLHttpRequest <#testRequestMethod#>];
+//    return [[[XNLHttpClient sharedInstance] rac_sendRequest:req EntityClass:[<#EntityClass#> class]]
+//            doNext:^(XNLConnectData *connectData) {
+//
+//                @strongify(self);
+//
+//                //保存数据
+//                <#code#>
+//            }];
+//}
+//
+
+end
+
+
+
+
+
+##################### 头文件模板  ###########################
+
+begin
+header_file
+%s
+
+#import "%s.h"
+
+@interface %s : %s
+
+%s
+
+@end
+
+end
+
+
+
+
+
+begin
+implement_file
+%s
+
+#import "%s.h"
+
+@interface %s()
+
+@end
+
+
+@implementation %s
+
+%s
+
+@end
+
+end
+
+
+
+
+
