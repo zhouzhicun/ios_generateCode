@@ -1,4 +1,4 @@
-###描述文件
+###1.描述文件
 #####描述文件主要由三部分组成：   
 1. 文件夹描述(folder节点)，具体定义如下:
 		
@@ -45,7 +45,33 @@
 
 
 
-####如何使用脚本
+###2.如何使用脚本
 1. 新创建一个文件夹，然后在该文件夹下面创建一个描述文件，文件名随意，然后写上类描述等。
-2. 打开控制台，python test.py
+2. 打开控制台，python start.py
 3. 根据输出提示，把描述文件拖到控制台即可，然后回车。脚本就会在描述文件所在当前目录创建对应的子目录以及生成对应的.h.m文件到各个子目录。
+
+
+
+
+###3. 脚本源码
+1. ClassInfo.py:    
+定义了OC类信息对应的py类。
+类包括三要素：类的类型，基类， 属性数组。     
+类的类型分为四种: cell, view, viewController, viewModel。
+2. CodeTemplate.py:    
+负责解析代码模板文件CodeTemplate.txt
+3. CodeTemplate.txt:
+代码模板，每一个模板由begin开头，end结束。
+4. GenerateFile.py:
+负责生成类文件(包括头文件，实现文件)
+5. GenerateMethod.py:
+负责生成对应的方法(包括UI方法，setter方法)
+6. start.py:
+入口脚本，负责解析类描述文件，并创建对应的OC类文件。
+
+
+
+###4 总结
+灵活使用该脚本以及[code Snippets](https://github.com/zhouzhiqun/code_Snippets)
+，开发效率可以提高不少。
+
